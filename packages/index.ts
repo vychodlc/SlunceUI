@@ -1,5 +1,5 @@
 import type { App } from 'vue'
-import asButton from './button'
+import asButton from './button/src/button.vue'
  
 const components = [
   asButton
