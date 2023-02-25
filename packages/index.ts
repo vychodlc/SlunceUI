@@ -9,7 +9,7 @@ const install = (app: App): void => {
   components.forEach(component => app.component(component.name, component))
 }
  
-const lcui = {
+const SlunceUI = {
   install
 }
  
@@ -17,4 +17,4 @@ export {
   asButton
 }
  
-export default lcui
+export default SlunceUI
