@@ -82,18 +82,21 @@ button {
   outline: none;
   cursor: pointer;
   font-size: 14px;
-  border-radius: 2px;
+  border-radius: 4px;
   background: #fff;
   overflow: hidden;
   white-space: nowrap;
   text-align: center;
   user-select: none;
   transition: all 0.15s ease;
-  
+  border: 1px solid transparent;
+  color: #fff;
 
   margin-left: 15px;
 }
-.sl-button {
+.sl-button-default {
+  border: 1px solid #dcdfe6;
+  color: #000;
 }
 .sl-button-medium {
   height: 28px;

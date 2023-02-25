@@ -9,11 +9,11 @@
   <asButton size="mini">这是一个按钮</asButton>
   <br/>
   <asButton>default</asButton>
-  <asButton type="primary">primary</asButton>
-  <asButton type="success">success</asButton>
-  <asButton type="info">info</asButton>
-  <asButton type="warning">warning</asButton>
-  <asButton type="danger">danger</asButton>
+  <asButton type="primary">Primary</asButton>
+  <asButton type="success">Success</asButton>
+  <asButton type="info">Info</asButton>
+  <asButton type="warning">Warning</asButton>
+  <asButton type="danger">Danger</asButton>
 </template>
 
 <style scoped>
