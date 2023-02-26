@@ -1,7 +1,7 @@
 {
   "name": "slunce-ui",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.13",
   "type": "module",
   "main": "./dist/slunce-ui.umd.cjs",
   "module": "./dist/slunce-ui.js",
@@ -9,7 +9,8 @@
     ".": {
       "import": "./dist/slunce-ui.js",
       "require": "./dist/slunce-ui.umd.cjs"
-    }
+    },
+    "./dist/style.css": "./dist/style.css"
   },
   "files": [
     "package.json",

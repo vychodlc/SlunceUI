@@ -1,0 +1,6 @@
+{
+  "sl-button": {
+    "attributes": ["type", "size", "disabled", "round"],
+    "description": "Commonly used button."
+  }
+}
