@@ -32,8 +32,36 @@ const props = defineProps({
   rightIcon: String,
   localing: Boolean,
 });
+const changeColor = ((color:string, num:number) => {
+  let colorArr = [
+    parseInt('0x' + color.slice(1, 3)),
+    parseInt('0x' + color.slice(3, 5)),
+    parseInt('0x' + color.slice(5, 7))
+  ]
+   let sColorChange:Array<number> = [];
+   for(var i=0;i<colorArr.length;i++){
+   		let val = colorArr[i]+num;
+	    if(val<0){
+	       val = 0;
+	    }
+	    if(val>255){
+	    	val=255;
+	    }
+   		sColorChange.push(val)
+   }
+   
+  var r = sColorChange[0]
+  var g = sColorChange[1]
+  var b = sColorChange[2]
+
+  var hex = "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+  return hex;
+})
 const btnDefaultStyle = {
   '--custom-color': props.color,
+  '--custom-color-hover': changeColor(props.color, 40),
+  '--custom-color-active': changeColor(props.color, -40),
+  '--custom-color-disabled': changeColor(props.color, 80)
 };
 const isClass = computed(() => {
   return [
@@ -43,7 +71,7 @@ const isClass = computed(() => {
       ? "sl-button-small"
       : props.size == "mini"
       ? "sl-button-mini"
-      : "sl-button",
+      : "sl-button sl-button-normal",
     props.type ? `sl-button-${props.type}` : "",
     props.disabled ? 'is-disabled' : '',
     props.plain ? 'is-plain' : '',
@@ -92,12 +120,9 @@ const styles = computed(() => {
 @color-danger-disabled: lighten(@color-danger, 20%);
 
 @color-custom: var(--custom-color);
-// @color-custom-hover: var(--custom-color, lighten(#ff0000,10%));
-// @color-custom-active: var(--custom-color, darken(#ff0000,10%));
-// @color-custom-disabled: var(--custom-color, lighten(#ff0000,20%));
-@color-custom-hover: var(--custom-color);;
-@color-custom-active: var(--custom-color);;
-@color-custom-disabled: var(--custom-color);;
+@color-custom-hover: var(--custom-color-hover);;
+@color-custom-active: var(--custom-color-active);;
+@color-custom-disabled: var(--custom-color-disabled);;
 
 button {
   display: inline-flex;
@@ -169,12 +194,20 @@ button {
     cursor: not-allowed;
   }
 }
+.sl-button-normal {
+  height: 32px;
+  padding: 8px 15px;
+  font-size: 14px;
+  &.is-round {
+  border-radius: 16px;
+  }
+}
 .sl-button-medium {
   height: 28px;
   padding: 7px 13px;
   font-size: 13px;
   &.is-round {
-    border-radius: 16px;
+    border-radius: 14px;
   }
 }
 .sl-button-small {
@@ -219,8 +252,8 @@ button {
     }
     &.is-plain {
       background-color: lighten(@@color-color, 25%);
-      color: @@color-color;
-      border: 1px solid @@color-color;
+      color:darken(@@color-color, 10%);
+      border: 1px solid darken(@@color-color, 10%);
       &:hover { 
         background-color: @@color-color;
         color: #fff;
@@ -245,14 +278,19 @@ button {
 .sl-button-custom {
   background-color: var(--custom-color);
   &:hover {
+    background-color: @color-custom-hover;
   }
   &:active {
+    background-color: @color-custom-active;
   }
   &.is-disabled {
+    background-color: @color-custom-disabled;
     cursor: not-allowed;
     &:hover { 
+      background-color: @color-custom-disabled;
     }
     &:active {
+      background-color: @color-custom-disabled;
     }
   }
   &.is-plain {
@@ -260,10 +298,17 @@ button {
     color: var(--custom-color);
     border-color: var(--custom-color);
     &:hover {
+      background-color: var(--custom-color);
+      color: #fff;
     }
     &:active {
+      background-color: @color-custom-active;
+      color: #fff;
     }
     &.is-disabled {
+      background-color: #fff;
+      color: var(--custom-color-disabled);
+      border-color: var(--custom-color-disabled);
     }
   }
 }

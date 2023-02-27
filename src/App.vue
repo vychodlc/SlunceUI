@@ -1,8 +1,11 @@
 <script setup lang="ts">
-
 </script>
-
 <template>
+  <p>icon</p>
+  <sl-icon name="close"></sl-icon>
+  <sl-icon name="upload"></sl-icon>
+  <sl-icon name="delete"></sl-icon>
+  <sl-icon name="add"></sl-icon>
   <p>size</p>
   <sl-button>这是一个按钮</sl-button>
   <sl-button size="medium">钮</sl-button>
@@ -60,6 +63,13 @@
   <sl-button type="custom" color="#626aef" plain disabled>Plain Disabled</sl-button>
   <br/>
   <br/>
+
+  <sl-button round>默认按钮</sl-button>
+  <sl-button round type="primary">主要按钮</sl-button>
+  <sl-button round type="success">成功按钮</sl-button>
+  <sl-button round type="info">信息按钮</sl-button>
+  <sl-button round type="warning">警告按钮</sl-button>
+  <sl-button round type="danger">危险按钮</sl-button>
 </template>
 
 <style scoped>
