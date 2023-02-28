@@ -1,6 +1,10 @@
 <template>
-  <svg class="icon" :style="IconColor" aria-hidden="true">
-    <use :xlink:href="IconName"></use>
+  <svg :class="IconClass" 
+    :style="IconColor" 
+    :width="props.width" 
+    :height="props.height" 
+    aria-hidden="true">
+    <use :xlink:href="IconName" fill="currentColor" />
   </svg>
 </template>
 
@@ -11,8 +15,6 @@ export default {
 </script>
 
 <script setup lang="ts">
-import '../../assets/js/iconfont.js'
-
 import { computed } from "vue";
 const props = defineProps({
   name: {
@@ -22,6 +24,14 @@ const props = defineProps({
   color: {
     type: String,
     default: "",
+  },
+  width: {
+    type: [Number,String],
+    default: 60,
+  },
+  height: {
+    type: [Number,String],
+    default: 60,
   }
 })
 const IconName = computed(() => {
@@ -30,17 +40,17 @@ const IconName = computed(() => {
 const IconColor = computed(() => {
   return `color: ${props.color}`;
 });
+const IconClass = computed(() => {
+  return ['sl-icon',props.name?`icon-${props.name}`:'']
+})
 
 </script>
 
-<style type="text/css">
-.icon {
-  width: 1em; height: 1em;
+<style scoped type="text/css">
+.sl-icon {
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
+  border: 1px solid #000;
 }
-</style>
-
-<style scoped lang="less">
 </style>

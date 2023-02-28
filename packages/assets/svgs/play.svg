@@ -1,7 +1,5 @@
-<svg height="0" width="0" viewBox="0 0 100 100">
-  <symbol id="play">
-    <circle cx="50" cy="50" r="50"  fill="currentColor"/>
-    <line x1="35" y1="30" x2="35" y2="70" stroke-width="5" stroke="white"></line>
-    <line x1="65" y1="30" x2="65" y2="70" stroke-width="5" stroke="white"></line>
-  </symbol>
+<svg class="icon" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="45" stroke="black" stroke-width="5" fill="none"/>
+  <line x1="35" y1="30" x2="35" y2="70" stroke-width="5" stroke="currentColor"></line>
+  <line x1="65" y1="30" x2="65" y2="70" stroke-width="5" stroke="currentColor"></line>
 </svg>

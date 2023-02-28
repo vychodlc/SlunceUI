@@ -1,11 +1,21 @@
 import { fileURLToPath, URL } from "node:url";
 import {resolve} from 'path'
+import path from 'path'
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+
 // https://vitejs.dev/config/
 export default defineConfig({
-    plugins: [vue(), dts()],
+    plugins: [
+      vue(), 
+      dts(),
+      createSvgIconsPlugin({
+        iconDirs: [path.resolve(process.cwd(), 'packages/assets/svgs')],
+        symbolId: 'icon-[name]'
+      })
+    ],
     resolve: {
       alias: {
         "@": fileURLToPath(new URL("./src", import.meta.url)),
