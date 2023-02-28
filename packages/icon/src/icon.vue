@@ -1,7 +1,7 @@
 <template>
-<svg class="icon" aria-hidden="true">
-  <use :xlink:href="IconName"></use>
-</svg>
+  <svg class="icon" :style="IconColor" aria-hidden="true">
+    <use :xlink:href="IconName"></use>
+  </svg>
 </template>
 
 <script lang="ts">
@@ -18,10 +18,17 @@ const props = defineProps({
   name: {
     type: String,
     default: "",
+  },
+  color: {
+    type: String,
+    default: "",
   }
 })
 const IconName = computed(() => {
   return `#icon-${props.name}`;
+});
+const IconColor = computed(() => {
+  return `color: ${props.color}`;
 });
 
 </script>

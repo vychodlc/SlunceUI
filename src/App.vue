@@ -2,10 +2,18 @@
 </script>
 <template>
   <p>icon</p>
-  <sl-icon name="close"></sl-icon>
-  <sl-icon name="upload"></sl-icon>
-  <sl-icon name="delete"></sl-icon>
-  <sl-icon name="add"></sl-icon>
+  <sl-icon-play color="blue"></sl-icon-play>
+  <sl-icon-play color="red"></sl-icon-play>
+  <!-- <svg height="50" width="50" viewBox="0 0 100 100" style="color: #37373d">
+    <use href="#play"></use>
+  </svg>
+  <svg height="100" width="100" viewBox="0 0 100 100" style="color: #007acc">
+    <use href="#play"></use>
+  </svg>
+  <sl-icon name="minus-bold" color="red"></sl-icon>
+  <sl-icon name="minus-bold" color="blue"></sl-icon>
+  <sl-icon name="minus-bold" color="blue"></sl-icon>
+  <sl-icon name="minus-bold"></sl-icon> -->
   <p>size</p>
   <sl-button>这是一个按钮</sl-button>
   <sl-button size="medium">钮</sl-button>
