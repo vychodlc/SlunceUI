@@ -2,7 +2,6 @@
 </script>
 <template>
   <p>icon</p>
-  <sl-icon name="bb" color="blue" width="100" height="100"></sl-icon>
   <sl-icon name="play" color="#9de7d1" width="50" height="50"></sl-icon>
   <sl-icon name="plus" color="#9de7d1" width="50" height="50"></sl-icon>
   <sl-icon name="minus" color="#9de7d1" width="50" height="50"></sl-icon>

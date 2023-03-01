@@ -1,7 +1,7 @@
 {
   "name": "slunce-ui",
   "private": false,
-  "version": "0.0.15",
+  "version": "0.0.16",
   "type": "module",
   "main": "./dist/slunce-ui.umd.cjs",
   "module": "./dist/slunce-ui.js",

@@ -1,6 +1,0 @@
-{
-  "size": {"options": ["medium", "small", "mini"]},
-  "loading": {"type": "boolean"},
-  "disabled": {"type": "boolean"},
-  "sl-button/type": {"options": ["primary", "info", "danger", "success", "warning"]}
-}
