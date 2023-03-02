@@ -4,7 +4,6 @@ import path from 'path'
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import { svgBuilder } from './src/plugins/svgBuilder';
 
 // https://vitejs.dev/config/
@@ -12,10 +11,6 @@ export default defineConfig({
     plugins: [
       vue(), 
       dts(),
-      // createSvgIconsPlugin({
-      //   iconDirs: [path.resolve(process.cwd(), 'packages/assets/svgs')],
-      //   symbolId: 'icon-[name]'
-      // }),
       svgBuilder('./packages/assets/svgs/')
     ],
     resolve: {

@@ -1,10 +1,12 @@
 import type { App } from 'vue'
-import slButton from './button'
-import slIcon from './icon'
+import slButton from './basic/button'
+import slIcon from './basic/icon'
+import slLink from './basic/link'
  
 const components = [
   slButton,
-  slIcon
+  slIcon,
+  slLink
 ]
 const install = (app: App): void => {
   components.forEach(component => app.component(component.name, component))
@@ -15,6 +17,7 @@ const SlunceUI = {
 
 export {
   slButton,
-  slIcon
+  slIcon,
+  slLink
 }
 export default SlunceUI

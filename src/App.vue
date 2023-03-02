@@ -1,6 +1,23 @@
 <script setup lang="ts">
 </script>
 <template>
+  <p>link</p>
+  <sl-link href="https://element-plus.org">default</sl-link>
+  <sl-link type="primary">primary</sl-link>
+  <sl-link type="success">success</sl-link>
+  <sl-link type="warning">warning</sl-link>
+  <sl-link type="danger">danger</sl-link>
+  <sl-link type="info">info</sl-link>
+  <p>link + disabled</p>
+  <sl-link disabled href="https://element-plus.org">default</sl-link>
+  <sl-link disabled type="primary">primary</sl-link>
+  <sl-link disabled type="success">success</sl-link>
+  <sl-link disabled type="warning">warning</sl-link>
+  <sl-link disabled type="danger">danger</sl-link>
+  <sl-link disabled type="info">info</sl-link>
+  <br/>
+  <sl-link :underline="false">Without Underline</sl-link>
+  <sl-link >With Underline</sl-link>
   <p>icon</p>
   <sl-icon name="play" color="#9de7d1" width="50" height="50"></sl-icon>
   <sl-icon name="plus" color="#9de7d1" width="50" height="50"></sl-icon>
@@ -56,6 +73,33 @@
   <sl-button size="mini" type="primary" round>Mini</sl-button>
   <br/>
   <br/>
+  <p>text</p>
+  <sl-button text>Default</sl-button>
+  <sl-button type="primary" text>Primary</sl-button>
+  <sl-button type="success" text>Success</sl-button>
+  <sl-button type="info" text>Info</sl-button>
+  <sl-button type="warning" text>Warning</sl-button>
+  <sl-button type="danger" text>Danger</sl-button>
+  <br/>
+  <br/>
+  <p>text + background</p>
+  <sl-button text bg>Default</sl-button>
+  <sl-button type="primary" text bg>Primary</sl-button>
+  <sl-button type="success" text bg>Success</sl-button>
+  <sl-button type="info" text bg>Info</sl-button>
+  <sl-button type="warning" text bg>Warning</sl-button>
+  <sl-button type="danger" text bg>Danger</sl-button>
+  <br/>
+  <br/>
+  <p>text + disabled</p>
+  <sl-button text disabled>Default</sl-button>
+  <sl-button type="primary" text disabled>Primary</sl-button>
+  <sl-button type="success" text disabled>Success</sl-button>
+  <sl-button type="info" text disabled>Info</sl-button>
+  <sl-button type="warning" text disabled>Warning</sl-button>
+  <sl-button type="danger" text disabled>Danger</sl-button>
+  <br/>
+  <br/>
   <p>color</p>
   <sl-button type="custom" color="#626aef">Default</sl-button>
   <sl-button type="custom" color="#626aef" plain>Plain</sl-button>
@@ -63,7 +107,7 @@
   <sl-button type="custom" color="#626aef" plain disabled>Plain Disabled</sl-button>
   <br/>
   <br/>
-
+  <p>round</p>
   <sl-button round>默认按钮</sl-button>
   <sl-button round type="primary">主要按钮</sl-button>
   <sl-button round type="success">成功按钮</sl-button>

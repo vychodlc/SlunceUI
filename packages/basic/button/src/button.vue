@@ -1,5 +1,5 @@
 <template>
-  <button class="slButton" :class="isClass" :style="styles">
+  <button class="slButton" :class="btnClass" :style="styles">
     <slot/>
   </button>
 </template>
@@ -20,6 +20,8 @@ const props = defineProps({
   disabled: Boolean,
   round: Boolean,
   plain: Boolean,
+  text: Boolean,
+  bg: Boolean,
   size: {
     type: String,
     default: "default",
@@ -63,7 +65,7 @@ const btnDefaultStyle = {
   '--custom-color-active': changeColor(props.color, -40),
   '--custom-color-disabled': changeColor(props.color, 80)
 };
-const isClass = computed(() => {
+const btnClass = computed(() => {
   return [
     props.size == "medium"
       ? "sl-button-medium"
@@ -75,7 +77,9 @@ const isClass = computed(() => {
     props.type ? `sl-button-${props.type}` : "",
     props.disabled ? 'is-disabled' : '',
     props.plain ? 'is-plain' : '',
-    props.round ? 'is-round' : "",
+    props.round ? 'is-round' : '',
+    props.text ? 'is-text' : '',
+    props.bg ? 'is-bg' : '',
   ];
 });
 const styles = computed(() => {
@@ -148,19 +152,18 @@ button {
 }
 .sl-button-default {
   border: 1px solid #dcdfe6;
-  // color: @color-default;
-  color: @color-custom;
+  color: @color-default;
   &.is-round {
     border-radius: 16px;
   }
   &:hover {
-    background-color: lighten(@color-primary, 30%);
-    color: @color-primary;
+    background-color: lighten(@color-default, 30%);
+    color: @color-default;
   }
   &:active {
-    background-color: lighten(@color-primary, 30%);
-    color: @color-primary;
-    border-color: @color-primary;
+    background-color: lighten(@color-default, 30%);
+    color: @color-default;
+    border-color: @color-default;
   }
   &.is-plain {
     background-color: #fff;
@@ -171,6 +174,28 @@ button {
     &:active {
       color: @color-primary;
       border-color: @color-primary;
+    }
+  }
+  &.is-text {
+    color: @color-default;
+    background-color: #fff;
+    border: none;
+    &:hover {
+      color: @color-default;
+      background-color: #f5f7fa;
+    }
+    &:active {
+      color: @color-default;
+      background-color: #f0f2f5;
+    }
+    &.is-bg {
+      background-color: #f5f7fa;
+      &:hover {        
+        background-color: #f5f7fa;
+      }
+      &:active {        
+        background-color: #f0f2f5;
+      }
     }
   }
   &.is-disabled {
@@ -190,6 +215,11 @@ button {
   }
   &.is-disabled.is-plain {
     border: 1px solid #dcdfe6;
+    color: @color-default-disabled;
+    cursor: not-allowed;
+  }
+  &.is-disabled.is-text {
+    border: none;
     color: @color-default-disabled;
     cursor: not-allowed;
   }
@@ -265,6 +295,39 @@ button {
         background-color: lighten(@@color-color, 27%);
         color: lighten(@@color-color, 18%);
         border: 1px solid lighten(@@color-color, 18%);
+      }
+    }
+    &.is-text {
+      background-color: #fff;
+      color:darken(@@color-color, 10%);
+      border: none;
+      &:hover { 
+        background-color: #f5f7fa;
+        color:darken(@@color-color, 10%);
+      }
+      &:active {
+        color: @color-color;
+        background-color: #f0f2f5;
+      }
+      &.is-bg {
+        background-color: #f5f7fa;
+        &:hover {        
+          background-color: #f5f7fa;
+        }
+        &:active {        
+          background-color: #f0f2f5;
+        }
+      }
+    }
+    &.is-text.is-disabled {
+      border: none;
+      color: @@color-disabled;
+      cursor: not-allowed;
+      &:hover {
+        background-color: #fff;
+      }
+      &:active {
+        background-color: #fff;
       }
     }
   }
