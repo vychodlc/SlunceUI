@@ -1,9 +1,5 @@
-import type { App } from 'vue'
 import slButton from './src/button.vue'
- 
-// 使用install方法，在app.use挂载
-slButton.install = (app: App) => {
-  app.component(slButton.name, slButton)
-}
+import { withInstall } from '../../utils';
+export const Button = withInstall(slButton);
 
-export default slButton
+export default Button

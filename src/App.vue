@@ -1,6 +1,42 @@
 <script setup lang="ts">
+import Message from '../packages/feedback/message/index'
+const openMsg1 = () => {
+  Message({
+    text: '默认消息提示'
+  })
+}
+const openMsg2 = () => {
+  Message({
+    text: 'success',
+    type: 'success'
+  })
+}
+const openMsg3 = () => {
+  Message({
+    text: 'warning',
+    type: 'warning'
+  })
+}
+const openMsg4 = () => {
+  Message({
+    text: 'danger',
+    type: 'danger'
+  })
+}
+const openMsg5 = () => {
+  Message({
+    text: 'info',
+    type: 'info'
+  })
+}
 </script>
 <template>
+  <p>message</p>
+  <sl-button @click="openMsg1">Info</sl-button>
+  <sl-button type="success" @click="openMsg2">Success</sl-button>
+  <sl-button type="warning" @click="openMsg3">Warning</sl-button>
+  <sl-button type="danger" @click="openMsg4">Danger</sl-button>
+  <sl-button type="info" @click="openMsg5">Info</sl-button>
   <p>link</p>
   <sl-link href="https://element-plus.org">default</sl-link>
   <sl-link type="primary">primary</sl-link>

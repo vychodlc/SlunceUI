@@ -1,9 +1,5 @@
-import type { App } from 'vue'
 import slIcon from './src/icon.vue'
+import { withInstall } from '../../utils';
+export const Icon = withInstall(slIcon);
 
-// 使用install方法，在app.use挂载
-slIcon.install = (app: App) => {
-  app.component(slIcon.name, slIcon)
-}
-
-export default slIcon
+export default Icon
