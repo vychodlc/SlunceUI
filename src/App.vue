@@ -40,6 +40,29 @@ const openMsgClose = (text='info') => {
 }
 </script>
 <template>
+  <sl-color></sl-color>
+  <sl-row>
+    <sl-col :span="12"><div class="col-box-2 col-box">12</div></sl-col>
+    <sl-col :span="12"><div class="col-box-1 col-box">12</div></sl-col>
+  </sl-row>
+  <sl-row>
+    <sl-col :span="8"><div class="col-box-1 col-box">8</div></sl-col>
+    <sl-col :span="8"><div class="col-box-2 col-box">8</div></sl-col>
+    <sl-col :span="8"><div class="col-box-1 col-box">8</div></sl-col>
+  </sl-row>
+  <sl-row>
+    <sl-col :span="6"><div class="col-box-2 col-box">6</div></sl-col>
+    <sl-col :span="6"><div class="col-box-1 col-box">6</div></sl-col>
+    <sl-col :span="6"><div class="col-box-2 col-box">6</div></sl-col>
+    <sl-col :span="6"><div class="col-box-1 col-box">6</div></sl-col>
+  </sl-row>
+  <sl-row>
+    <sl-col :span="4"><div class="col-box-1 col-box">4</div></sl-col>
+    <sl-col :span="2"><div class="col-box-2 col-box">2</div></sl-col>
+    <sl-col :span="4"><div class="col-box-1 col-box">4</div></sl-col>
+    <sl-col :span="6"><div class="col-box-2 col-box">6</div></sl-col>
+    <sl-col :span="8"><div class="col-box-1 col-box">8</div></sl-col>
+  </sl-row>
   <p>message</p>
   <sl-button @click="openMsg1">Info</sl-button>
   <sl-button type="success" @click="openMsg2">Success</sl-button>
@@ -52,7 +75,27 @@ const openMsgClose = (text='info') => {
   <sl-button plain @click="openMsgClose('warning')">Warning</sl-button>
   <sl-button plain @click="openMsgClose('danger')">Danger</sl-button>
 
-
+  <sl-row>
+    <sl-col :span="10"><div class="col-box-2 col-box">10</div></sl-col>
+    <sl-col :span="12" :offset="2"
+      ><div class="col-box-1 col-box">12</div></sl-col
+    >
+  </sl-row>
+  <sl-row>
+    <sl-col :span="8"><div class="col-box-1 col-box">8</div></sl-col>
+    <sl-col :span="8" :offset="8"><div class="col-box-1 col-box">8</div></sl-col>
+  </sl-row>
+  <sl-row>
+    <sl-col :span="2"><div class="col-box-2 col-box">2</div></sl-col>
+    <sl-col :span="6" :offset="4"><div class="col-box-1 col-box">6</div></sl-col>
+    <sl-col :span="6" :offset="6"><div class="col-box-2 col-box">6</div></sl-col>
+  </sl-row>
+  <sl-row>
+    <sl-col :span="4"><div class="col-box-1 col-box">4</div></sl-col>
+    <sl-col :span="2" :offset="4"><div class="col-box-2 col-box">2</div></sl-col>
+    <sl-col :span="4" :offset="2"><div class="col-box-1 col-box">4</div></sl-col>
+    <sl-col :span="6" :offset="2"><div class="col-box-2 col-box">6</div></sl-col>
+  </sl-row>
   
   <sl-button type="success" @click="openMsg2" disabled>Success</sl-button>
   <p>link</p>
@@ -171,4 +214,18 @@ const openMsgClose = (text='info') => {
 </template>
 
 <style scoped>
+.col-box {
+  height: 34px;
+  margin-bottom: 10px;
+  text-align: center;
+  line-height: 34px;
+}
+.col-box-1 {
+  background-color: #9eaaaf;
+  color: #333;
+}
+.col-box-2 {
+  background-color: #505050;
+  color: #fff;
+}
 </style>
