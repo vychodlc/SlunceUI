@@ -1,7 +1,7 @@
-import { createVNode, render } from "vue";
+import { createVNode, render, h } from "vue";
 import slMessage from './message.vue'
 
-export default ({text, type='info', timeout=2500}) => {
+export default ({text, type='info', timeout=2000, close=false}) => {
   document.querySelector('.sl-message-container')?document.body.removeChild(
     document.querySelector('.sl-message-container')
   ):''
@@ -13,11 +13,13 @@ export default ({text, type='info', timeout=2500}) => {
     : undefined
   div.setAttribute('class', 'sl-message-container')
   if(typeof document !== 'undefined') {
-    document.body.appendChild(div)
+    if(typeof div !== 'undefined') {
+      document.body.appendChild(div)
+    }
   }
 
   let timer = null
-  const vnode = createVNode(slMessage, {text, type, timeout}, [text])
+  const vnode = createVNode(slMessage, {text, type, timeout, close}, [text])
 
   render(vnode, div)
 
@@ -26,7 +28,9 @@ export default ({text, type='info', timeout=2500}) => {
   timer = setTimeout(() => {
     render(null, div)
     if (typeof document !== 'undefined') {
-      document.body.removeChild(div)
+      if(typeof div !== 'undefined') {
+        document.body.appendChild(div)
+      }
     }
     clearTimeout(timer)
   }, timeout)

@@ -15,6 +15,7 @@ export default {
 </script>
 
 <script setup lang="ts">
+import '../../../assets/js/icon.js'
 import { computed } from "vue";
 const props = defineProps({
   name: {

@@ -1,5 +1,5 @@
 <template>
-  <Transition name="slice-fade">
+  <Transition name="slide-fade">
     <div class="sl-message" :class="itemClass" v-show="isShow">
       <template v-if="isText">
         <!-- <i :class="[style[type].icon]"></i> -->
@@ -28,7 +28,7 @@ const props = defineProps({
   text: {
     type: [String, Object],
     default: ''
-  }
+  } 
 })
 const isText = computed(() => {
   return typeof props.text === 'string'

@@ -157,8 +157,8 @@ button {
     border-radius: 16px;
   }
   &:hover {
-    background-color: lighten(@color-default, 30%);
-    color: @color-default;
+    background-color: lighten(@color-primary, 30%);
+    color: @color-primary;
   }
   &:active {
     background-color: lighten(@color-default, 30%);
