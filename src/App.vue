@@ -40,7 +40,9 @@ const openMsgClose = (text='info') => {
 }
 </script>
 <template>
-  <sl-color></sl-color>
+  <sl-color text="Brand Color" color="#409EFF" otherColor></sl-color>
+  <sl-color text="Success" color="#67C23A" otherColor></sl-color>
+  <sl-color text="主要文字" color="#303133"></sl-color>
   <sl-row>
     <sl-col :span="12"><div class="col-box-2 col-box">12</div></sl-col>
     <sl-col :span="12"><div class="col-box-1 col-box">12</div></sl-col>
