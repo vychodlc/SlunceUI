@@ -58,19 +58,19 @@ export const svgBuilder = (path, perfix = 'icon') => {
           console.log(`创建失败：${error}`)
     }}
   )
-  // return {
-  //   name: 'svg-transform',
-  //   transformIndexHtml(html) {
-  //     return html.replace(
-  //         '<body>',
-  //         `
-  //         <body>
-  //           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute; width: 0; height: 0">
-  //             ${res.join('')}
-  //           </svg>
-  //       `
-  //     )
-  //   }
-  // }
-  return true
+  return {
+    name: 'svg-transform',
+    transformIndexHtml(html) {
+      return html.replace(
+          '<body>',
+          `
+          <body>
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute; width: 0; height: 0">
+              ${res.join('')}
+            </svg>
+        `
+      )
+    }
+  }
+  // return true
 }
