@@ -161,9 +161,9 @@ button {
     color: @color-primary;
   }
   &:active {
-    background-color: lighten(@color-default, 30%);
-    color: @color-default;
-    border-color: @color-default;
+    background-color: lighten(@color-primary, 30%);
+    color: @color-primary;
+    border-color: @color-primary;
   }
   &.is-plain {
     background-color: #fff;

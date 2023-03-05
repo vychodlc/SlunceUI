@@ -2,7 +2,7 @@ import { createVNode, render, h } from "vue";
 import slMessage from './message.vue'
 
 export default ({text, type='info', timeout=2000, close=false}) => {
-  document.querySelector('.sl-message-container')?document.body.removeChild(
+  document.querySelector('.sl-message-container') ? document.body.removeChild(
     document.querySelector('.sl-message-container')
   ):''
   const div:HTMLDivElement = 

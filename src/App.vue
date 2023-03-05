@@ -3,7 +3,7 @@ import slMessage from '../packages/feedback/message/index'
 const openMsg1 = () => {
   slMessage({
     text: '默认消息提示',
-    timeout: 100
+    timeout: 1000
   })
 }
 const openMsg2 = () => {

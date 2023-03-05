@@ -36,8 +36,6 @@ const props = defineProps({
   }
 })
 
-console.log(props.text)
-
 const mainColor = props.color
 
 const mainStyle = computed(() => {

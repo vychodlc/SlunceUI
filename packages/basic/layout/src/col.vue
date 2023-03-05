@@ -1,11 +1,13 @@
 <template>
   <div class="sl-col-default"><slot></slot></div>
 </template>
+
 <script lang="ts">
 export default{
   name:"sl-col"
 }
 </script>
+
 <script setup lang="ts">
 import {ref} from 'vue'
 const props = defineProps({

@@ -1,12 +1,14 @@
 <template>
   <div class="sl-row-default"><slot></slot></div>
 </template>
-<script>
+
+<script lang="ts">
 export default{
   name:"sl-row"
 }
 </script>
-<script setup>
+
+<script setup lang="ts">
 
 </script>
 
