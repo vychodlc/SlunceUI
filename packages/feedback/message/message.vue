@@ -8,6 +8,9 @@
       <template v-else>
         <slot />
       </template>
+      <span class="closeIcon" @click="isShow=false">
+        <sl-icon name="close" :color="iconColor" width="15" height="15" v-if="boolClose"></sl-icon>
+      </span>
     </div>
   </Transition>
 </template>
@@ -19,6 +22,7 @@
 </script>
 
 <script setup lang="ts">
+import slIcon from '../../basic/icon/src/icon.vue'
 import {computed, ref, onMounted} from 'vue'
 const props = defineProps({
   type: {
@@ -28,7 +32,11 @@ const props = defineProps({
   text: {
     type: [String, Object],
     default: ''
-  } 
+  },
+  close: {
+    type: Boolean,
+    default: false
+  }
 })
 const isText = computed(() => {
   return typeof props.text === 'string'
@@ -37,6 +45,19 @@ const itemClass = computed(() => {
   return props.type?`sl-message-${props.type}`:'sl-message-info'
 })
 const isShow = ref(false)
+const colorList = {
+  'success': '#67c23a',
+  'info': '#909399',
+  'warning': '#e6a23c',
+  'danger': '#f56c6c'
+}
+const iconColor = computed(() => {
+  return colorList[props.type]
+})
+console.log(props.close)
+const boolClose = computed(() => {
+  return props.close
+})
 onMounted(() => {
   isShow.value = true
 })
@@ -60,6 +81,7 @@ div.slide-fade-leave-to {
   transform: translate3d(-50%, -75px, 0);
 }
 .sl-message {
+  position: relative;
   font-size: 14px;
   position: fixed;
   z-index: 9999;
@@ -70,7 +92,7 @@ div.slide-fade-leave-to {
   display: flex;
   align-items: center;
   min-height: 45px;
-  padding: 5px 25px;
+  padding: 5px 30px;
   border: 1px solid #e4e4e4;
   background: #f5f5f5;
   color: #999;
@@ -94,6 +116,14 @@ div.slide-fade-leave-to {
     color: @color-warning;
     background-color: lighten(@color-warning, 40%);
     border: 1px solid lighten(@color-warning, 20%);
+  }
+  
+  .closeIcon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
   }
 }
 </style>

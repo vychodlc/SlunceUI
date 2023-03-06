@@ -72,5 +72,4 @@ export const svgBuilder = (path, perfix = 'icon') => {
       )
     }
   }
-  // return true
 }

@@ -1,0 +1,4 @@
+<svg class="icon icon-minus" viewBox="0 0 100 100">
+  <line x1="25" y1="25" x2="75" y2="75" stroke-width="10" stroke="currentColor"></line>
+  <line x1="25" y1="75" x2="75" y2="25" stroke-width="10" stroke="currentColor"></line>
+</svg>

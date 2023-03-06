@@ -1,11 +1,15 @@
 import type { App } from 'vue'
+
 import slButton from './basic/button'
 import slIcon from './basic/icon'
 import slLink from './basic/link'
-import slMessage from './feedback/message'
 import slCol from './basic/layout/col'
 import slRow from './basic/layout/row'
 import slColor from './basic/color'
+
+import slMessage from './feedback/message'
+
+import slInput from './form/input'
  
 const components = [
   slButton,
@@ -14,7 +18,8 @@ const components = [
   slMessage,
   slCol,
   slRow,
-  slColor
+  slColor,
+  slInput
 ]
 const install = (app: App): void => {
   components.forEach(component => app.component(component.name, component))
@@ -32,6 +37,7 @@ export {
   slMessage,
   slCol,
   slRow,
-  slColor
+  slColor,
+  slInput
 }
 export default SlunceUI

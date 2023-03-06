@@ -52,6 +52,5 @@ const IconClass = computed(() => {
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
-  border: 1px solid #000;
 }
 </style>
