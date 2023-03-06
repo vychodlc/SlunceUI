@@ -9,7 +9,7 @@
     @change="change"
     @input="inputChange"
     >
-    <span><sl-icon name="close" width="15" height="15"></sl-icon></span>
+    <span v-show="iconShow"><sl-icon name="close" width="15" height="15"></sl-icon></span>
   </div>
 </template>
 
@@ -52,8 +52,9 @@ let focusStyle = {
   'width': '100%',
   'float': 'auto',
   'border-radius': '4px',
-  'border-color':'#dcdfe6f6'
+  'border-color':'#dcdfe6f6',
 }
+let iconShow = ref(false)
 let isStyle = ref({})
 const focus = (e: any) =>{
   focusStyle['border-color'] = "#0e80eb"
