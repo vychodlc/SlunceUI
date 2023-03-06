@@ -72,6 +72,9 @@ const blur = (e: any) => {
 const inputChange = (e: any) => {
   emit('update:modelValue', e.target.value)
   emit('input',e.target.value)
+  if(e.target.value!='' && props.clearable) {
+    iconShow.value = true
+  }
 }
 const change = (e: any) => {
   emit('change', e)
