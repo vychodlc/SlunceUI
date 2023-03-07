@@ -40,6 +40,7 @@ const openMsgClose = (text='info') => {
   })
 }
 let input_val1 = ref('123')
+let input_val2 = ref('223')
 
 </script>
 <template>
@@ -50,7 +51,11 @@ let input_val1 = ref('123')
   <sl-input type="password" placeholder="请输入你的名字..." v-model="input_val1" showPassword></sl-input>
   <sl-input type="text" placeholder="请输入你的名字..." v-model="input_val1" size="small"></sl-input>
   <sl-input type="text" placeholder="请输入你的名字..." v-model="input_val1" size="mini"></sl-input>
+  <sl-input type="text" placeholder="请输入你的名字..." v-model="input_val1" iconPos="left" iconName="search"></sl-input>
+  <sl-input type="text" placeholder="请输入你的名字..." v-model="input_val1" iconPos="right" iconName="play"></sl-input>
+  <sl-input type="text" placeholder="请输入你的名字..." v-model="input_val2" maxLength="5"></sl-input>
   <p>{{ input_val1 }}</p>
+  <p>{{ input_val2 }}</p>
   <!-- <sl-color text="Brand Color" color="#409EFF" otherColor></sl-color>
   <sl-color text="Success" color="#67C23A" otherColor></sl-color>
   <sl-color text="主要文字" color="#303133"></sl-color>

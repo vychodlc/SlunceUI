@@ -1,6 +1,6 @@
 <template>
   <div class="sl-input" :class="isClass" :style="isStyle">
-    <span v-show="modelValue!=''&&showPassword" @click="changePwdShow"><sl-icon name="search" width="20" height="20"></sl-icon></span>
+    <span v-show="iconPos=='left'"><sl-icon :name="iconName" width="20" height="20"></sl-icon></span>
     <input 
     :type="inputType" 
     :placeholder="placeholder"
@@ -14,7 +14,8 @@
     >
     <span v-show="modelValue!=''&&showPassword" @click="changePwdShow"><sl-icon name="eyeopen" width="20" height="20"></sl-icon></span>
     <span v-show="iconShow&&modelValue!=''&&clearable" @click="clear"><sl-icon name="close" width="20" height="20"></sl-icon></span>
-    
+    <span v-show="iconPos=='right'"><sl-icon :name="iconName" width="20" height="20"></sl-icon></span>
+    <span v-if="maxLength!=''" class="limitNum">{{ (modelValue?modelValue.toString().length:0)+'/'+maxLength }}</span>
   </div>
 </template>
 
@@ -64,8 +65,25 @@ const props = defineProps({
   withBtn: {
     type: String,
     default: '',
+  },
+  iconPos: {
+    type: String,
+    default: '',
+  },
+  iconName: {
+    type: String,
+    default: '',
+  },
+  wordLimit: {
+    type: Boolean,
+    default: false,
+  },
+  maxLength: {
+    type: String,
+    default: '',
   }
 })
+
 let inputType = ref(props.type)
 let focusStyle = {
   'width': '100%',
@@ -78,7 +96,20 @@ let isStyle = ref({})
 let inputStyle = ref({})
 inputStyle.value = {
   'width': 'calc(100% - 30px)',
+  'padding-left': `${
+    props.iconPos=='left'?'0':
+      props.size=='normal'?'10px':
+        props.size=='small'?'8px':
+          props.size=='mini'?'6px':''
+  }`,
+  'padding-right': `${
+    props.iconPos=='right'?'0':
+      props.size=='normal'?'10px':
+        props.size=='small'?'8px':
+          props.size=='mini'?'6px':''
+  }`
 }
+
 const focus = (e: any) =>{
   focusStyle['border-color'] = "#0e80eb"
   isStyle.value['border-color'] = props.focusColor
@@ -93,9 +124,17 @@ const blur = (e: any) => {
   emit('blur', e)
 }
 const inputChange = (e: any) => {
+  let value = e.target.value
+  let length = parseInt(props.maxLength)
+  
+  if(props.maxLength!='') {
+    if(value.length >= length) {
+      e.target.value = value.slice(0, length)
+    }
+  }
   emit('update:modelValue', e.target.value)
   emit('input',e.target.value)
-  if(e.target.value!='' && props.clearable) {
+  if(value!='' && props.clearable) {
     iconShow.value = true
   } else {
     iconShow.value = false
@@ -124,6 +163,9 @@ const changePwdShow = () => {
 .sl-input {
   width: 100%;
   border: 1px solid #dcdfe6f6;
+  &:hover {  
+    border: 1px solid lighten(#dcdfe6, -10%);
+  }
   overflow: hidden;
   border-radius:4px;
   transition: all .2s ease;
@@ -147,7 +189,7 @@ const changePwdShow = () => {
   &-normal {
     height: 35px;
     input {
-      padding: 0 10px;
+      // padding: 0 10px;
       font-size: 14px;
       &::placeholder {
         font-size: 14px;
@@ -157,7 +199,7 @@ const changePwdShow = () => {
   &-small {
     height: 30px;
     input {
-      padding: 0 8px;
+      // padding: 0 8px;
       font-size: 13px;
       &::placeholder {
         font-size: 13px;
@@ -167,7 +209,7 @@ const changePwdShow = () => {
   &-mini {
     height: 25px;
     input {
-      padding: 0 6px;
+      // padding: 0 6px;
       font-size: 12px;
       &::placeholder {
         font-size: 12px;
@@ -178,7 +220,7 @@ const changePwdShow = () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #000;
+    // border: 1px solid #000;
     width: 35px;
     svg {
       // border: 1px solid #000;
@@ -191,6 +233,14 @@ const changePwdShow = () => {
   & input {
     cursor: not-allowed;
     background-color: #f5f7fa;
+    color: #dcdfe6;
   }
+  &:hover {  
+    border: 1px solid #dcdfe6f6;
+  }
+}
+.limitNum {
+  font-size: 12px;
+  color: #dcdfe6;
 }
 </style>
