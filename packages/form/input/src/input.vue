@@ -1,15 +1,20 @@
 <template>
   <div class="sl-input" :class="isClass" :style="isStyle">
+    <span v-show="modelValue!=''&&showPassword" @click="changePwdShow"><sl-icon name="search" width="20" height="20"></sl-icon></span>
     <input 
-    :type="type" 
+    :type="inputType" 
     :placeholder="placeholder"
     :disabled="disabled"
+    :value="modelValue"
+    :style="inputStyle"
     @focus="focus"
     @blur="blur"
     @change="change"
     @input="inputChange"
     >
-    <span v-show="iconShow"><sl-icon name="close" width="15" height="15"></sl-icon></span>
+    <span v-show="modelValue!=''&&showPassword" @click="changePwdShow"><sl-icon name="eyeopen" width="20" height="20"></sl-icon></span>
+    <span v-show="iconShow&&modelValue!=''&&clearable" @click="clear"><sl-icon name="close" width="20" height="20"></sl-icon></span>
+    
   </div>
 </template>
 
@@ -27,6 +32,7 @@ const emit = defineEmits([
   'update:modelValue', 'clear', 'focus', 'blur', 'input', 'change'
 ])
 const props = defineProps({
+  modelValue: [String,Number],
   type: {
     type: String,
     default: 'text'
@@ -46,8 +52,21 @@ const props = defineProps({
   clearable: {
     type: Boolean,
     default: false
+  },
+  showPassword: {
+    type: Boolean,
+    default: false
+  },
+  size: {
+    type: String,
+    default: 'normal',
+  },
+  withBtn: {
+    type: String,
+    default: '',
   }
 })
+let inputType = ref(props.type)
 let focusStyle = {
   'width': '100%',
   'float': 'auto',
@@ -56,6 +75,10 @@ let focusStyle = {
 }
 let iconShow = ref(false)
 let isStyle = ref({})
+let inputStyle = ref({})
+inputStyle.value = {
+  'width': 'calc(100% - 30px)',
+}
 const focus = (e: any) =>{
   focusStyle['border-color'] = "#0e80eb"
   isStyle.value['border-color'] = props.focusColor
@@ -74,46 +97,97 @@ const inputChange = (e: any) => {
   emit('input',e.target.value)
   if(e.target.value!='' && props.clearable) {
     iconShow.value = true
+  } else {
+    iconShow.value = false
   }
 }
 const change = (e: any) => {
   emit('change', e)
 }
+const clear = (e: any) =>{
+  emit('update:modelValue', "")
+  emit('clear')
+}
 const isClass = computed(() => {
   return [
     props.disabled?'sl-input-disabled':'',
     props.clearable?'sl-input-clearable':'',
+    props.size?`sl-input-${props.size}`:'sl-input-normal',
   ]
 })
+const changePwdShow = () => {
+  inputType.value = inputType.value=='password'?'text':'password'
+}
 </script>
 
 <style lang="less" scoped>
 .sl-input {
-  width:100%;
-  height:35px;
+  width: 100%;
   border: 1px solid #dcdfe6f6;
   overflow: hidden;
   border-radius:4px;
   transition: all .2s ease;
   position: relative;
   box-sizing: border-box;
+  display: flex;
+  justify-items: center;
+  padding: 0;
   input{
-    width:100%;
-    font-size:14px;
-    outline:none;
-    border:0;
-    margin:0;
-    padding:10px 10px 10px 10px;
+    outline: none;
+    border: 0;
+    margin: 0;
     box-sizing: border-box;
-    color:#606266;
+    border: none;
+    color: #606266;
     &::placeholder {
       color: #c6c8cc;
       font-size: 14px;
     }
   }
+  &-normal {
+    height: 35px;
+    input {
+      padding: 0 10px;
+      font-size: 14px;
+      &::placeholder {
+        font-size: 14px;
+      }
+    }
+  }
+  &-small {
+    height: 30px;
+    input {
+      padding: 0 8px;
+      font-size: 13px;
+      &::placeholder {
+        font-size: 13px;
+      }
+    }
+  }
+  &-mini {
+    height: 25px;
+    input {
+      padding: 0 6px;
+      font-size: 12px;
+      &::placeholder {
+        font-size: 12px;
+      }
+    }
+  }
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    width: 35px;
+    svg {
+      // border: 1px solid #000;
+    }
+  }
 }
 .sl-input-disabled {
   cursor: not-allowed;
+    background-color: #f5f7fa;
   & input {
     cursor: not-allowed;
     background-color: #f5f7fa;

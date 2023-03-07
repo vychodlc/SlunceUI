@@ -39,13 +39,17 @@ const openMsgClose = (text='info') => {
     close: true,
   })
 }
-let input_val1 = ref()
+let input_val1 = ref('123')
 
 </script>
 <template>
   <sl-input type="text" placeholder="请输入你的名字..." v-model="input_val1"></sl-input>
   <sl-input type="text" placeholder="请输入你的名字..." v-model="input_val1" disabled></sl-input>
   <sl-input type="text" placeholder="请输入你的名字..." v-model="input_val1" clearable></sl-input>
+  <sl-input type="text" placeholder="请输入你的名字..." v-model="input_val1" focusColor="red"></sl-input>
+  <sl-input type="password" placeholder="请输入你的名字..." v-model="input_val1" showPassword></sl-input>
+  <sl-input type="text" placeholder="请输入你的名字..." v-model="input_val1" size="small"></sl-input>
+  <sl-input type="text" placeholder="请输入你的名字..." v-model="input_val1" size="mini"></sl-input>
   <p>{{ input_val1 }}</p>
   <!-- <sl-color text="Brand Color" color="#409EFF" otherColor></sl-color>
   <sl-color text="Success" color="#67C23A" otherColor></sl-color>
@@ -123,6 +127,7 @@ let input_val1 = ref()
   <sl-link :underline="false">Without Underline</sl-link>
   <sl-link >With Underline</sl-link>
   <p>icon</p>
+  <sl-icon name="eyeopen" color="#9de7d1" width="50" height="50"></sl-icon>
   <sl-icon name="close" color="#9de7d1" width="50" height="50"></sl-icon>
   <sl-icon name="play" color="#9de7d1" width="50" height="50"></sl-icon>
   <sl-icon name="plus" color="#9de7d1" width="50" height="50"></sl-icon>
@@ -235,5 +240,8 @@ let input_val1 = ref()
 .col-box-2 {
   background-color: #505050;
   color: #fff;
+}
+.sl-input {
+  margin-top: 10px;
 }
 </style>
