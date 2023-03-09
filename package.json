@@ -1,7 +1,7 @@
 {
   "name": "slunce-ui",
   "private": false,
-  "version": "0.0.20",
+  "version": "0.0.22",
   "type": "module",
   "main": "./dist/slunce-ui.umd.cjs",
   "module": "./dist/slunce-ui.js",
@@ -26,7 +26,8 @@
   "dependencies": {
     "less": "^4.1.3",
     "vite-plugin-dts": "^2.0.2",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@types/node": "^18.14.1",

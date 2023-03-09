@@ -1,6 +1,6 @@
 <template>
   <div class="sl-input" :class="isClass" :style="isStyle">
-    <span v-show="iconPos=='left'"><sl-icon :name="iconName" width="20" height="20"></sl-icon></span>
+    <span v-show="iconPos=='left'"><sl-icon :name="iconName" width="20" height="20" color="#424242"></sl-icon></span>
     <input 
     :type="inputType" 
     :placeholder="placeholder"
@@ -12,9 +12,9 @@
     @change="change"
     @input="inputChange"
     >
-    <span v-show="modelValue!=''&&showPassword" @click="changePwdShow"><sl-icon name="eyeopen" width="20" height="20"></sl-icon></span>
-    <span v-show="iconShow&&modelValue!=''&&clearable" @click="clear"><sl-icon name="close" width="20" height="20"></sl-icon></span>
-    <span v-show="iconPos=='right'"><sl-icon :name="iconName" width="20" height="20"></sl-icon></span>
+    <span v-show="modelValue!=''&&showPassword" @click="changePwdShow"><sl-icon name="eyeopen" width="20" height="20" color="#424242"></sl-icon></span>
+    <span v-show="iconShow&&modelValue!=''&&clearable" @click="clear"><sl-icon name="close" width="20" height="20" color="#424242"></sl-icon></span>
+    <span v-show="iconPos=='right'"><sl-icon :name="iconName" width="20" height="20" color="#424242"></sl-icon></span>
     <span v-if="maxLength!=''" class="limitNum">{{ (modelValue?modelValue.toString().length:0)+'/'+maxLength }}</span>
   </div>
 </template>

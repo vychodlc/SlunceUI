@@ -40,4 +40,5 @@ export {
   slColor,
   slInput
 }
+
 export default SlunceUI
